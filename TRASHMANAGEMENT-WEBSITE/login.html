@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BorlaGo - Login</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>BorlaGo - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -103,7 +102,7 @@
             },
         }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -123,27 +122,27 @@
 <!-- Auth Card -->
 <div class="w-full max-w-[440px] bg-surface-container-lowest rounded-xl shadow-xl z-10 overflow-hidden border border-outline-variant/30">
 <div class="p-md md:p-lg flex flex-col gap-md">
-<!-- Brand Header -->
-<div class="flex flex-col items-center gap-xs">
-<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center shadow-sm">
+<!-- Brand Header linked back to index.html -->
+<a href="index.html" class="flex flex-col items-center gap-xs group cursor-pointer">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
 <span class="material-symbols-outlined text-on-primary-container text-[28px]" style="font-variation-settings: 'FILL' 1;">eco</span>
 </div>
-<h1 class="font-headline-md text-headline-md text-primary tracking-tight">BorlaGo</h1>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight group-hover:text-primary/80 transition-colors">BorlaGo</h1>
 <p class="font-body-md text-body-md text-on-surface-variant text-center">Welcome back! Manage your waste efficiently.</p>
+</a>
+<!-- Role Selection Tabs (ID added for script selector) -->
+<div id="role-tabs-container" class="flex p-base bg-surface-container rounded-lg">
+<button data-role="user" class="flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-primary-container bg-primary-container shadow-sm transition-all">I am a User</button>
+<button data-role="collector" class="flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all">I am a Collector</button>
+<button data-role="admin" class="flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all">I am an Admin</button>
 </div>
-<!-- Role Selection Tabs -->
-<div class="flex p-base bg-surface-container rounded-lg">
-<button class="flex-1 py-xs rounded-md font-label-md text-label-md text-on-primary-container bg-primary-container shadow-sm transition-all">I am a User</button>
-<button class="flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all">I am a Collector</button>
-<button class="flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all">I am an Admin</button>
-</div>
-<!-- Form -->
-<form class="flex flex-col gap-sm" onsubmit="return false;">
+<!-- Form (Form handler id attached) -->
+<form id="login-form" class="flex flex-col gap-sm">
 <div class="flex flex-col gap-xs">
 <label class="font-label-md text-label-md text-on-surface-variant" for="email">Email Address</label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">mail</span>
-<input class="w-full pl-[52px] pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md text-body-md" id="email" placeholder="name@example.com" type="email"/>
+<input required class="w-full pl-[52px] pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md text-body-md" id="email" placeholder="name@example.com" type="email"/>
 </div>
 </div>
 <div class="flex flex-col gap-xs">
@@ -153,7 +152,7 @@
 </div>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">lock</span>
-<input class="w-full pl-[52px] pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md text-body-md" id="password" placeholder="••••••••" type="password"/>
+<input required class="w-full pl-[52px] pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md text-body-md" id="password" placeholder="••••••••" type="password"/>
 </div>
 </div>
 <button class="w-full mt-xs bg-primary text-on-primary py-sm rounded-lg font-label-md text-label-md shadow-sm hover:brightness-110 active:scale-[0.98] transition-all" type="submit">Login</button>
@@ -198,4 +197,48 @@
 </div>
 </div>
 </footer>
-</body></html>
+
+<!-- NEW: Core Logic Tab State & Form Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabsContainer = document.getElementById('role-tabs-container');
+        const roleButtons = tabsContainer.querySelectorAll('button');
+        const loginForm = document.getElementById('login-form');
+        
+        let currentRole = 'user'; // Tracking state
+        
+        // Define clean tailwind class clusters for active vs resting items
+        const activeStyles = ["text-on-primary-container", "bg-primary-container", "shadow-sm"];
+        const restingStyles = ["text-on-surface-variant", "hover:bg-surface-container-high"];
+
+        roleButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const targetRole = e.currentTarget.getAttribute('data-role');
+                if (targetRole === currentRole) return;
+                
+                // Clear active states off everything
+                roleButtons.forEach(btn => {
+                    btn.classList.remove(...activeStyles);
+                    btn.classList.add(...restingStyles);
+                });
+                
+                // Apply active states to target element
+                e.currentTarget.classList.remove(...restingStyles);
+                e.currentTarget.classList.add(...activeStyles);
+                
+                currentRole = targetRole;
+            });
+        });
+
+        // intercept mock login submit
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailVal = document.getElementById('email').value;
+            const passwordVal = document.getElementById('password').value;
+            
+            alert(`Logging in as role: ${currentRole.toUpperCase()}\nEmail: ${emailVal}`);
+        });
+    });
+</script>
+</body>
+</html>
