@@ -197,8 +197,8 @@
 </div>
 </div>
 </footer>
-
-<!-- NEW: Core Logic Tab State & Form Script -->
+    
+<!-- Replace your old script block at the bottom of login.html with this one -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const tabsContainer = document.getElementById('role-tabs-container');
@@ -206,39 +206,32 @@
         const loginForm = document.getElementById('login-form');
         
         let currentRole = 'user'; // Tracking state
-        
-        // Define clean tailwind class clusters for active vs resting items
-        const activeStyles = ["text-on-primary-container", "bg-primary-container", "shadow-sm"];
-        const restingStyles = ["text-on-surface-variant", "hover:bg-surface-container-high"];
+
+        // The exact, complete strings of text classes your buttons use
+        const activeStyles = "flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-primary-container bg-primary-container shadow-sm transition-all";
+        const restingStyles = "flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all";
 
         roleButtons.forEach(button => {
             button.addEventListener('click', (e) => {
-                const targetRole = e.currentTarget.getAttribute('data-role');
-                if (targetRole === currentRole) return;
-                
-                // Clear active states off everything
+                // 1. Reset ALL buttons to look like plain, unselected text
                 roleButtons.forEach(btn => {
-                    btn.classList.remove(...activeStyles);
-                    btn.classList.add(...restingStyles);
+                    btn.className = restingStyles;
                 });
                 
-                // Apply active states to target element
-                e.currentTarget.classList.remove(...restingStyles);
-                e.currentTarget.classList.add(...activeStyles);
+                // 2. Force the exact clicked button to take on the green active capsule styling
+                e.currentTarget.className = activeStyles;
                 
-                currentRole = targetRole;
+                // 3. Update our internal track state
+                currentRole = e.currentTarget.getAttribute('data-role');
             });
         });
 
-        // intercept mock login submit
+        // Intercept form submission
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const emailVal = document.getElementById('email').value;
-            const passwordVal = document.getElementById('password').value;
-            
             alert(`Logging in as role: ${currentRole.toUpperCase()}\nEmail: ${emailVal}`);
         });
     });
-</script>
-</body>
+</script></body>
 </html>
