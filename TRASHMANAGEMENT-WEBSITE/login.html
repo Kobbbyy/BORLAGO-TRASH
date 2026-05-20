@@ -130,11 +130,15 @@
 <h1 class="font-headline-md text-headline-md text-primary tracking-tight group-hover:text-primary/80 transition-colors">BorlaGo</h1>
 <p class="font-body-md text-body-md text-on-surface-variant text-center">Welcome back! Manage your waste efficiently.</p>
 </a>
-<!-- Role Selection Tabs (ID added for script selector) -->
-<div id="role-tabs-container" class="flex p-base bg-surface-container rounded-lg">
-<button data-role="user" class="flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-primary-container bg-primary-container shadow-sm transition-all">I am a User</button>
-<button data-role="collector" class="flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all">I am a Collector</button>
-<button data-role="admin" class="flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all">I am an Admin</button>
+<!-- REPLACE OLD CONTAINER WITH THIS STRUCTURE -->
+<div id="role-tabs-container" class="flex p-base bg-surface-container rounded-lg relative isolation-auto">
+  <!-- The actual sliding green capsule background layer -->
+  <div id="sliding-pill" class="absolute top-base bottom-base left-base w-[calc(33.333%-6px)] bg-primary-container rounded-md shadow-sm transition-all duration-300 ease-out z-0"></div>
+  
+  <!-- Clear text buttons placed on top (z-10) with text color shifting styles -->
+  <button type="button" data-role="user" class="z-10 flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-primary-container font-semibold transition-colors duration-300">I am a User</button>
+  <button type="button" data-role="collector" class="z-10 flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant transition-colors duration-300">I am a Collector</button>
+  <button type="button" data-role="admin" class="z-10 flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant transition-colors duration-300">I am an Admin</button>
 </div>
 <!-- Form (Form handler id attached) -->
 <form id="login-form" class="flex flex-col gap-sm">
@@ -198,40 +202,43 @@
 </div>
 </footer>
     
-<!-- Replace your old script block at the bottom of login.html with this one -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const tabsContainer = document.getElementById('role-tabs-container');
-        const roleButtons = tabsContainer.querySelectorAll('button');
+        const roleButtons = document.querySelectorAll('#role-tabs-container button');
+        const slidingPill = document.getElementById('sliding-pill');
         const loginForm = document.getElementById('login-form');
         
-        let currentRole = 'user'; // Tracking state
+        let currentRole = 'user';
 
-        // The exact, complete strings of text classes your buttons use
-        const activeStyles = "flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-primary-container bg-primary-container shadow-sm transition-all";
-        const restingStyles = "flex-grow flex-1 py-xs rounded-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all";
-
-        roleButtons.forEach(button => {
+        roleButtons.forEach((button, index) => {
             button.addEventListener('click', (e) => {
-                // 1. Reset ALL buttons to look like plain, unselected text
+                const targetRole = e.currentTarget.getAttribute('data-role');
+                if (targetRole === currentRole) return;
+                
+                // 1. Calculate how far right the pill needs to slide physically (0%, 33.33%, or 66.66%)
+                const translateValue = index * 100;
+                slidingPill.style.transform = `translateX(${translateValue}%)`;
+                
+                // 2. Adjust text colors dynamically so the text over the pill turns dark/readable
                 roleButtons.forEach(btn => {
-                    btn.className = restingStyles;
+                    btn.classList.remove('text-on-primary-container', 'font-semibold');
+                    btn.classList.add('text-on-surface-variant');
                 });
                 
-                // 2. Force the exact clicked button to take on the green active capsule styling
-                e.currentTarget.className = activeStyles;
+                e.currentTarget.classList.remove('text-on-surface-variant');
+                e.currentTarget.classList.add('text-on-primary-container', 'font-semibold');
                 
-                // 3. Update our internal track state
-                currentRole = e.currentTarget.getAttribute('data-role');
+                currentRole = targetRole;
             });
         });
 
-        // Intercept form submission
+        // Form Submit Handler
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const emailVal = document.getElementById('email').value;
             alert(`Logging in as role: ${currentRole.toUpperCase()}\nEmail: ${emailVal}`);
         });
     });
-</script></body>
+</script>
+</body>
 </html>
