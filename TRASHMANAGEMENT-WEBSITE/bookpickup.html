@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1f3",
+                        "outline-variant": "#bccbb9",
+                        "surface-container-high": "#e7e8ea",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#410001",
+                        "surface-bright": "#f8f9fb",
+                        "primary-fixed-dim": "#4ae176",
+                        "primary-container": "#22c55e",
+                        "surface-container": "#edeef0",
+                        "tertiary-container": "#ff8b7c",
+                        "on-primary-fixed": "#002109",
+                        "secondary": "#486554",
+                        "secondary-container": "#caead6",
+                        "on-primary-fixed-variant": "#005321",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#004b1e",
+                        "on-background": "#191c1e",
+                        "outline": "#6d7b6c",
+                        "error-container": "#ffdad6",
+                        "primary": "#006e2f",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-variant": "#e1e2e4",
+                        "primary-fixed": "#6bff8f",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#4ae176",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-surface-variant": "#3d4a3d",
+                        "surface": "#f8f9fb",
+                        "on-secondary-fixed": "#042014",
+                        "on-tertiary-container": "#76231b",
+                        "on-tertiary-fixed-variant": "#7f2a21",
+                        "secondary-fixed": "#caead6",
+                        "inverse-surface": "#2e3132",
+                        "tertiary": "#9e4036",
+                        "background": "#f8f9fb",
+                        "surface-dim": "#d9dadc",
+                        "surface-tint": "#006e2f",
+                        "secondary-fixed-dim": "#afceba",
+                        "on-secondary-fixed-variant": "#314d3e",
+                        "on-surface": "#191c1e",
+                        "on-secondary-container": "#4e6b5a",
+                        "surface-container-low": "#f3f4f6",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "xs": "8px",
+                        "margin-desktop": "48px",
+                        "lg": "40px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "xl": "64px",
+                        "sm": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex-col p-md gap-xs">
+<div class="mb-xl px-md">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">BorlaGo Portal</h1>
+<p class="text-label-sm text-on-surface-variant">Waste Management System</p>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<div class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all active:scale-98">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</div>
+<div class="flex items-center gap-sm bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm font-bold active:scale-98">
+<span class="material-symbols-outlined">delete_sweep</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all active:scale-98">
+<span class="material-symbols-outlined">route</span>
+<span class="font-label-md text-label-md">Route Map</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all active:scale-98">
+<span class="material-symbols-outlined">Person</span>
+<span class="font-label-md text-label-md">Bin Status</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all active:scale-98">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md">History</span>
+</div>
+</nav>
+<div class="mt-auto flex flex-col gap-xs border-t border-outline-variant pt-md">
+<div class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all active:scale-98">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-label-md text-label-md">Support</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all active:scale-98">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</div>
+</div>
+</aside>
+<main class="md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="bg-surface-container-lowest shadow-sm sticky top-0 z-10">
+<div class="flex justify-between items-center w-full px-sm md:px-lg py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-md">
+<span class="md:hidden material-symbols-outlined text-on-surface">menu</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">BorlaGo</span>
+</div>
+<div class="hidden md:flex gap-lg items-center">
+<span class="font-body-md text-body-md text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Impact</span>
+<span class="font-body-md text-body-md text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Services</span>
+<span class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 font-bold">Schedule</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="hidden md:flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full transition-colors">dark_mode</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full transition-colors">settings</span>
+</div>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a friendly individual with a clean-cut appearance, set against a neutral, softly lit studio background. The lighting is bright and high-key, emphasizing a modern and approachable professional aesthetic. The subject is wearing a simple, high-quality white shirt that complements the clean, minimalist UI design of the waste management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIwLMYFBYkPoG9h1oEvyBL_QBGSD7ff0lqB0mTK3huOWqgxKSd2yJ0OGneEn0eBwFALO3Go6JOKlFACCPHS2mTuNXszZ0Mt0-7fnGqtmfnswWoCWU3Aiei_bNc8J4XzvHTWF7lLmaH8BT4aQneKcQWOLthwBMPDqT2AFrmNzcDPTg14ARn-XYP5AAfAzi-ah_sXzW3jKnbYobQbuATgBwrxSz-ak9ZtR5lCHEyaOKxgWA9l3GYNNHkdo502MNi_JfJ3TF1hGRgjL2u"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex-1 p-sm md:p-xl max-w-6xl mx-auto w-full">
+<!-- Progress Stepper -->
+<div class="mb-xl">
+<div class="flex justify-between items-center max-w-2xl mx-auto relative">
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-surface-container-high -z-0"></div>
+<div class="absolute top-1/2 left-0 w-1/2 h-0.5 bg-primary -z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Details</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md ring-4 ring-primary-container">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Schedule</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined">fact_check</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Confirm</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Form Sections -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Section 1: Waste Details -->
+<section class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)]">
+<div class="flex items-center gap-sm mb-md">
+<div class="p-xs bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined">delete_outline</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Waste Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm mb-md">
+<label class="relative group cursor-pointer">
+<input checked="" class="peer sr-only" name="waste_type" type="radio"/>
+<div class="p-sm border border-outline-variant rounded-xl flex flex-col items-center gap-xs peer-checked:border-primary peer-checked:bg-primary-container/10 transition-all">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">recycling</span>
+<span class="font-label-md text-label-md">Recyclable</span>
+</div>
+</label>
+<label class="relative group cursor-pointer">
+<input class="peer sr-only" name="waste_type" type="radio"/>
+<div class="p-sm border border-outline-variant rounded-xl flex flex-col items-center gap-xs peer-checked:border-primary peer-checked:bg-primary-container/10 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">compost</span>
+<span class="font-label-md text-label-md">Organic</span>
+</div>
+</label>
+<label class="relative group cursor-pointer">
+<input class="peer sr-only" name="waste_type" type="radio"/>
+<div class="p-sm border border-outline-variant rounded-xl flex flex-col items-center gap-xs peer-checked:border-primary peer-checked:bg-primary-container/10 transition-all">
+<span class="material-symbols-outlined text-tertiary">warning</span>
+<span class="font-label-md text-label-md">Hazardous</span>
+</div>
+</label>
+</div>
+<div class="space-y-sm">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs">Quantity / Size Estimation</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-sm focus:border-primary focus:ring-2 focus:ring-primary-container/30 outline-none transition-all">
+<option>Small (Single Bin / 120L)</option>
+<option>Medium (Standard Cart / 240L)</option>
+<option>Large (Bulk Pickup / 600L+)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs">Special Notes</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-sm focus:border-primary focus:ring-2 focus:ring-primary-container/30 outline-none transition-all" placeholder="Any access codes or specific instructions?" rows="3"></textarea>
+</div>
+</div>
+</section>
+<!-- Section 2: Location -->
+<section class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)]">
+<div class="flex items-center gap-sm mb-md">
+<div class="p-xs bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Pickup Location</h2>
+</div>
+<div class="space-y-md">
+<div class="w-full h-48 bg-surface-container rounded-xl overflow-hidden relative border border-outline-variant">
+<img alt="Map location" class="w-full h-full object-cover opacity-80" data-alt="A highly detailed and stylized digital map display of an urban city neighborhood, specifically designed for a modern waste management application. The map uses a clean, minimalist aesthetic with a soft green and white color palette. A prominent green location pin marks a specific street address, surrounded by a subtle pulse effect that indicates an active selection. The lighting is crisp and even, evoking a bright daytime setting with high technological precision." data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI5pe5c2K6SF98_8BIO6N0zM9ZWxTOdxPRG0SgdZjPRPNErB4q7tR5XSCL4cTORXsamX7gBXsfcO91RGFggJKTvxKmPP7wA2tjpPV-OS6uE_0DeW9Jx0EjytT1Gl61oRr95QLS1g76AFQPE30NkCS6OtYiJTkVqNdXpFnXQDIaHqLHgeN9yLuxPNA6-ZGlB4KmxnNzli3OphYSP0SpfMq7Ivv7wOXWNuq_Ek32XqFwKRFkooH9S8o_Rgg7HWzoqZaxgomF-39USOX-"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary text-on-primary p-xs rounded-full shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-sm focus:border-primary focus:ring-2 focus:ring-primary-container/30 outline-none transition-all" placeholder="Confirm street address..." type="text" value="742 Evergreen Terrace, Springfield"/>
+</div>
+</section>
+<!-- Section 3: Scheduling -->
+<section class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)]">
+<div class="flex items-center gap-sm mb-md">
+<div class="p-xs bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Scheduling</h2>
+</div>
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="flex-1 space-y-sm">
+<label class="flex items-center gap-md p-md border border-primary bg-primary-container/5 rounded-xl cursor-pointer">
+<input checked="" class="accent-primary" name="timing" type="radio"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Immediate Pickup</p>
+<p class="text-label-sm text-on-surface-variant">Within the next 2-4 hours</p>
+</div>
+<div class="ml-auto">
+<span class="text-label-sm font-bold text-primary">+$15.00</span>
+</div>
+</label>
+<label class="flex items-center gap-md p-md border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="accent-primary" name="timing" type="radio"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Scheduled Window</p>
+<p class="text-label-sm text-on-surface-variant">Select a future date and time</p>
+</div>
+</label>
+</div>
+<div class="flex-1 bg-surface-container-low p-sm rounded-xl border border-outline-variant">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-md text-label-md">Select Date</span>
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">chevron_left</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-xs text-center mb-xs">
+<span class="text-[10px] text-outline">M</span>
+<span class="text-[10px] text-outline">T</span>
+<span class="text-[10px] text-outline">W</span>
+<span class="text-[10px] text-outline">T</span>
+<span class="text-[10px] text-outline">F</span>
+<span class="text-[10px] text-outline">S</span>
+<span class="text-[10px] text-outline">S</span>
+</div>
+<div class="grid grid-cols-7 gap-xs">
+<div class="h-8 flex items-center justify-center text-outline text-label-sm">28</div>
+<div class="h-8 flex items-center justify-center text-outline text-label-sm">29</div>
+<div class="h-8 flex items-center justify-center bg-primary text-on-primary rounded-full text-label-sm font-bold">1</div>
+<div class="h-8 flex items-center justify-center hover:bg-surface-container-high rounded-full text-label-sm cursor-pointer">2</div>
+<div class="h-8 flex items-center justify-center hover:bg-surface-container-high rounded-full text-label-sm cursor-pointer">3</div>
+<div class="h-8 flex items-center justify-center hover:bg-surface-container-high rounded-full text-label-sm cursor-pointer">4</div>
+<div class="h-8 flex items-center justify-center hover:bg-surface-container-high rounded-full text-label-sm cursor-pointer">5</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Summary Card -->
+<aside class="lg:col-span-4 sticky top-24">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Booking Summary</h3>
+<div class="space-y-sm pb-md border-b border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">Waste Pickup (Med)</span>
+<span class="text-body-md font-bold">$45.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">Immediate Service</span>
+<span class="text-body-md font-bold">$15.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">Distance Surcharge</span>
+<span class="text-body-md font-bold">$5.50</span>
+</div>
+</div>
+<div class="py-md">
+<div class="flex justify-between items-center mb-base">
+<span class="text-headline-md font-bold">Total Cost</span>
+<span class="text-headline-md font-bold text-primary">$65.50</span>
+</div>
+<p class="text-label-sm text-on-surface-variant">Includes all local taxes and eco-fees.</p>
+</div>
+<div class="bg-secondary-container/30 p-sm rounded-lg mb-md flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-0.5">eco</span>
+<div>
+<p class="font-label-md text-label-md text-on-primary-container">Eco-Impact</p>
+<p class="text-label-sm text-on-secondary-container">This pickup will divert ~12kg of CO2 by ensuring proper sorting.</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-bold shadow-lg hover:brightness-110 active:scale-95 transition-all mb-sm">
+                            Continue to Review
+                        </button>
+<button class="w-full bg-surface-container-high text-on-surface-variant py-sm rounded-lg font-bold hover:bg-surface-variant active:scale-95 transition-all">
+                            Save as Draft
+                        </button>
+</div>
+<div class="mt-md p-md bg-tertiary-container/10 border border-tertiary-container/30 rounded-xl">
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-tertiary">support_agent</span>
+<div>
+<p class="font-label-md text-label-md text-on-tertiary-container">Need assistance?</p>
+<p class="text-label-sm text-on-tertiary-fixed-variant">Chat with our waste management specialists now.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<!-- Footer (Authority: JSON) -->
+<footer class="bg-surface-container-highest border-t border-outline-variant mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl gap-md max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-headline-md font-headline-md font-bold text-primary">BorlaGo</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">© 2024 BorlaGo Ecosystem. Clean Streets, Green Future.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Privacy Policy</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Terms of Service</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Sustainability Report</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Contact Us</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Hidden on booking screens per shell mandate, but shown here as it's a primary action entry point for global context if needed elsewhere - suppressed per user intent for this specific task flow) -->
+</body></html>

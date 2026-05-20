@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BorlaGo Collector Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-fixed-dim": "#ffb4a9",
+                      "primary": "#006e2f",
+                      "on-background": "#191c1e",
+                      "primary-container": "#22c55e",
+                      "tertiary-container": "#ff8b7c",
+                      "on-secondary-fixed": "#042014",
+                      "surface-dim": "#d9dadc",
+                      "surface": "#f8f9fb",
+                      "secondary-container": "#caead6",
+                      "surface-container": "#edeef0",
+                      "on-primary-container": "#004b1e",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#f8f9fb",
+                      "surface-tint": "#006e2f",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#6d7b6c",
+                      "on-tertiary-container": "#76231b",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#4ae176",
+                      "primary-fixed": "#6bff8f",
+                      "on-tertiary-fixed": "#410001",
+                      "primary-fixed-dim": "#4ae176",
+                      "on-surface": "#191c1e",
+                      "outline-variant": "#bccbb9",
+                      "on-primary-fixed-variant": "#005321",
+                      "background": "#f8f9fb",
+                      "secondary-fixed-dim": "#afceba",
+                      "tertiary": "#9e4036",
+                      "surface-container-low": "#f3f4f6",
+                      "secondary-fixed": "#caead6",
+                      "surface-variant": "#e1e2e4",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-secondary-fixed-variant": "#314d3e",
+                      "on-surface-variant": "#3d4a3d",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#4e6b5a",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#ffdad5",
+                      "inverse-on-surface": "#f0f1f3",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#7f2a21",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e7e8ea",
+                      "secondary": "#486554",
+                      "on-primary-fixed": "#002109"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "xl": "64px",
+                      "xs": "8px",
+                      "md": "24px",
+                      "base": "4px",
+                      "margin-desktop": "48px",
+                      "sm": "16px",
+                      "lg": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant p-md gap-xs">
+<div class="mb-lg px-md">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">BorlaGo Portal</h1>
+<p class="text-label-sm text-on-surface-variant">Waste Management System</p>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-sm bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm font-bold active:scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="delete_sweep">delete_sweep</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="route">route</span>
+<span class="font-label-md text-label-md">Route Map</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="sensors_krone">Person</span>
+<span class="font-label-md text-label-md">Bin Status</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-label-md">History</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-xs pt-md border-t border-outline-variant">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-30 bg-surface-container-lowest shadow-sm flex justify-between items-center w-full px-sm md:px-lg py-base max-w-full">
+<div class="flex items-center gap-sm">
+<button class="md:hidden p-base text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Collector Dashboard</h2>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-outline">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-label-md focus:ring-2 focus:ring-primary w-64" placeholder="Search pickups..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="relative p-base text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface-container-lowest"></span>
+</button>
+<button class="p-base text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant cursor-pointer active:scale-95 transition-transform">
+<img alt="User profile avatar" data-alt="A professional headshot of a person wearing a clean, green corporate vest over a white shirt, set against a bright, minimalist studio background with soft lighting. The overall aesthetic is professional, modern, and aligned with a high-tech environmental service brand. Colors are crisp and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ssspqGpiABslS5HlQHLl42XttIppisD179ZY0P3f5r08nbnIbOVzVbMQWAAPa1JWjlUHMuswjIcuXtWbJBtt-actwWM9KzQBYf9oNTsPCUKgEXTu6ITYhoecxppYcba3x4PUwQda384nMIZBizB734Slx4jUdp2m_IZv6V0V3K2eecKLMRHoxlrWFF5elQEf8Ng1XOaKoEf1fKKrf-6kEzLmOQG1zCqNpWVYg3eqKtJwkk-Y_JRx36q6q74kp0e2niQjMZkcpoky"/>
+</div>
+</div>
+</div>
+</header>
+<div class="p-sm md:p-lg space-y-lg">
+<!-- Hero Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Earnings Summary -->
+<div class="md:col-span-2 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Earnings Today</p>
+<h3 class="text-headline-xl font-headline-xl text-primary mt-xs">$284.50</h3>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between text-label-md mb-xs">
+<span class="text-on-surface-variant">Weekly Target ($1,200)</span>
+<span class="font-bold">74%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[74%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Performance Metrics -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-label-md font-bold">Rating</p>
+</div>
+<div class="text-headline-lg font-headline-lg">4.92</div>
+<p class="text-label-sm text-primary mt-xs">+0.04 this week</p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="timer">timer</span>
+<p class="text-label-md font-bold">On-Time Rate</p>
+</div>
+<div class="text-headline-lg font-headline-lg">98%</div>
+<p class="text-label-sm text-primary mt-xs">Top 5% of Drivers</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Active Job Card -->
+<div class="lg:col-span-2 space-y-gutter">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-primary/5 flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="flex h-3 w-3 rounded-full bg-primary animate-pulse"></span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Active Pickup</h3>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full text-label-sm font-bold">IN PROGRESS</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="p-md space-y-md">
+<div>
+<p class="text-label-sm text-on-surface-variant">User &amp; Address</p>
+<p class="font-body-md text-body-md font-bold">Michael Chen</p>
+<p class="text-body-md text-on-surface-variant">4521 Evergreen Terrace, Suite 12</p>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border-l-4 border-primary">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="sticky_note_2">sticky_note_2</span> Pickup Notes
+                                    </p>
+<p class="text-body-md mt-xs font-medium">Gate code: 5582. Two large bins of organic waste behind the main garage.</p>
+</div>
+<!-- Status Slider Replacement (Interactive visual) -->
+<div class="pt-sm">
+<p class="text-label-sm text-on-surface-variant mb-md">Status Progress</p>
+<div class="relative flex justify-between items-center px-4">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-high -translate-y-1/2 z-0"></div>
+<div class="absolute top-1/2 left-0 w-1/2 h-1 bg-primary -translate-y-1/2 z-0"></div>
+<div class="z-10 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<div class="z-10 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="z-10 bg-surface-container-high text-on-surface-variant w-8 h-8 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="flag">flag</span>
+</div>
+</div>
+<div class="flex justify-between text-[10px] uppercase font-bold text-on-surface-variant mt-sm px-1">
+<span>Accepted</span>
+<span class="text-primary">En Route</span>
+<span>Complete</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-sm rounded-lg font-bold flex items-center justify-center gap-sm hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+                                    Complete Pickup
+                                </button>
+</div>
+<div class="h-64 md:h-auto min-h-[300px] relative">
+<img alt="Map of pickup location" class="w-full h-full object-cover" data-alt="A clean, minimalist vector map visualization highlighting a specific urban route in a soft green and white color palette. Subtle 3D icons represent the collector vehicle and the destination waste bin. The aesthetic is modern, tech-focused, and highly legible, using high-contrast markers against a neutral light grey background." data-location="Portland, Oregon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM-czCN_nWcCoBvrVVkI0_XmyDpt3fInU92V4zEIfSG5m6nJIyzfJgxRf9vyFi2QBz_gcEeMkCXlyk5L1T_S2vG9gGZCe3FQq0igbJjPJJuliC4XRs_gt4NKqRXlSMfzXhzWe1VgLJKbh1TzfbXKI4JyJPCkJZ9zvTgGqxDduysn0nMEBpwOHCITEQEAcmFhjaacIayuVmdtfP-Z27pahOM6JdUCC5kroSFgKgliBl7caHbPkN60Y3qfEanLftDrDEfyQAnF8xG_pH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<button class="absolute bottom-md right-md bg-surface-container-lowest p-sm rounded-full shadow-lg text-primary hover:bg-primary hover:text-white transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="navigation">navigation</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pickup Requests List -->
+<section class="space-y-sm">
+<div class="flex justify-between items-center px-xs">
+<h3 class="font-headline-md text-headline-md">New Requests</h3>
+<span class="text-label-md text-primary font-bold cursor-pointer hover:underline">View All</span>
+</div>
+<div class="space-y-sm">
+<!-- Request Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex gap-md items-center">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<div class="flex items-center gap-xs">
+<p class="font-bold text-body-md">Hazardous Waste (Priority)</p>
+<span class="text-[10px] bg-tertiary text-on-tertiary px-2 py-0.5 rounded-full">URGENT</span>
+</div>
+<p class="text-label-sm text-on-surface-variant">0.8 miles away • 1202 Maple Blvd</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 md:flex-none px-lg py-2 rounded-lg border border-outline text-on-surface hover:bg-surface-container-low transition-colors font-bold text-label-md active:scale-95">Reject</button>
+<button class="flex-1 md:flex-none px-lg py-2 rounded-lg bg-primary text-white hover:opacity-90 transition-opacity font-bold text-label-md active:scale-95">Accept</button>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex gap-md items-center">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="recycling">recycling</span>
+</div>
+<div>
+<p class="font-bold text-body-md">Plastic Recycling</p>
+<p class="text-label-sm text-on-surface-variant">2.4 miles away • 990 Oak Dr</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 md:flex-none px-lg py-2 rounded-lg border border-outline text-on-surface hover:bg-surface-container-low transition-colors font-bold text-label-md active:scale-95">Reject</button>
+<button class="flex-1 md:flex-none px-lg py-2 rounded-lg bg-primary text-white hover:opacity-90 transition-opacity font-bold text-label-md active:scale-95">Accept</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Today's Schedule & Notifications -->
+<aside class="space-y-gutter">
+<!-- Today's Schedule -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-md">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-bold text-body-lg">Today's Route</h3>
+<span class="text-label-sm text-on-surface-variant">8 Pickups Left</span>
+</div>
+<div class="space-y-md relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-outline-variant">
+<!-- Item 1 - Done -->
+<div class="flex gap-md relative">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white z-10 shrink-0">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+</div>
+<div class="opacity-50">
+<p class="text-label-sm font-bold">08:30 AM</p>
+<p class="text-body-md">221B Baker St • Organics</p>
+</div>
+</div>
+<!-- Item 2 - Active -->
+<div class="flex gap-md relative">
+<div class="w-6 h-6 rounded-full bg-primary border-4 border-surface-container-lowest shadow-sm z-10 shrink-0"></div>
+<div>
+<p class="text-label-sm font-bold text-primary">09:15 AM (Active)</p>
+<p class="text-body-md font-medium">4521 Evergreen Terr • Mixed</p>
+</div>
+</div>
+<!-- Item 3 - Pending -->
+<div class="flex gap-md relative">
+<div class="w-6 h-6 rounded-full bg-surface-container-high z-10 shrink-0"></div>
+<div>
+<p class="text-label-sm font-bold text-on-surface-variant">10:00 AM</p>
+<p class="text-body-md">15 Westview Dr • Glass</p>
+</div>
+</div>
+<!-- Item 4 - Pending -->
+<div class="flex gap-md relative">
+<div class="w-6 h-6 rounded-full bg-surface-container-high z-10 shrink-0"></div>
+<div>
+<p class="text-label-sm font-bold text-on-surface-variant">11:15 AM</p>
+<p class="text-body-md">303 Main St • Paper</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-lg py-sm text-primary text-label-md font-bold border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">
+                            Optimization Settings
+                        </button>
+</div>
+<!-- Service Indicators & Quick Tips -->
+<div class="bg-primary text-white rounded-xl shadow-lg p-md">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<h4 class="font-bold text-body-md">Efficiency Tip</h4>
+</div>
+<p class="text-label-md opacity-90 leading-relaxed">
+                            Heavy rain expected in 2 hours. Use the 'Waterproof Seal' verification for hazardous pickups scheduled after 1 PM.
+                        </p>
+</div>
+<!-- Recent Service Record -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="p-md font-bold text-body-md border-b border-outline-variant">Safety Checklist</div>
+<div class="p-md space-y-sm">
+<label class="flex items-center gap-sm cursor-pointer p-xs hover:bg-surface-container-low rounded">
+<input checked="" class="rounded text-primary focus:ring-primary w-5 h-5" type="checkbox"/>
+<span class="text-label-md">Vehicle Inspection (Daily)</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer p-xs hover:bg-surface-container-low rounded">
+<input checked="" class="rounded text-primary focus:ring-primary w-5 h-5" type="checkbox"/>
+<span class="text-label-md">Glove Integrity Check</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer p-xs hover:bg-surface-container-low rounded">
+<input class="rounded text-primary focus:ring-primary w-5 h-5" type="checkbox"/>
+<span class="text-label-md">Waste Disposal Protocol Verified</span>
+</label>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-outline-variant px-md py-base flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-base text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-base text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="route">route</span>
+<span class="text-[10px]">Route</span>
+</a>
+<a class="flex flex-col items-center gap-base text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px]">Earnings</span>
+</a>
+<a class="flex flex-col items-center gap-base text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button for Mobile -->
+<button class="md:hidden fixed bottom-20 right-md bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BorlaGo - Waste Collection Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f0f1f3",
+                      "outline-variant": "#bccbb9",
+                      "surface-container-high": "#e7e8ea",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#410001",
+                      "surface-bright": "#f8f9fb",
+                      "primary-fixed-dim": "#4ae176",
+                      "primary-container": "#22c55e",
+                      "surface-container": "#edeef0",
+                      "tertiary-container": "#ff8b7c",
+                      "on-primary-fixed": "#002109",
+                      "secondary": "#486554",
+                      "secondary-container": "#caead6",
+                      "on-primary-fixed-variant": "#005321",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb4a9",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#004b1e",
+                      "on-background": "#191c1e",
+                      "outline": "#6d7b6c",
+                      "error-container": "#ffdad6",
+                      "primary": "#006e2f",
+                      "tertiary-fixed": "#ffdad5",
+                      "surface-variant": "#e1e2e4",
+                      "primary-fixed": "#6bff8f",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#4ae176",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-surface-variant": "#3d4a3d",
+                      "surface": "#f8f9fb",
+                      "on-secondary-fixed": "#042014",
+                      "on-tertiary-container": "#76231b",
+                      "on-tertiary-fixed-variant": "#7f2a21",
+                      "secondary-fixed": "#caead6",
+                      "inverse-surface": "#2e3132",
+                      "tertiary": "#9e4036",
+                      "background": "#f8f9fb",
+                      "surface-dim": "#d9dadc",
+                      "surface-tint": "#006e2f",
+                      "secondary-fixed-dim": "#afceba",
+                      "on-secondary-fixed-variant": "#314d3e",
+                      "on-surface": "#191c1e",
+                      "on-secondary-container": "#4e6b5a",
+                      "surface-container-low": "#f3f4f6",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "24px",
+                      "xs": "8px",
+                      "margin-desktop": "48px",
+                      "lg": "40px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "xl": "64px",
+                      "sm": "16px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface shadow-sm sticky top-0 z-50">
+<nav class="flex justify-between items-center w-full px-sm md:px-lg py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-xs">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">BorlaGo</span>
+</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Impact</a>
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1" href="#">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Schedule</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined p-xs rounded-full hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors cursor-pointer active:scale-95 duration-200" data-icon="search">search</button>
+<button class="material-symbols-outlined p-xs rounded-full hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors cursor-pointer active:scale-95 duration-200" data-icon="notifications">notifications</button>
+<div class="h-8 w-8 rounded-full bg-primary overflow-hidden">
+<img alt="User profile avatar" data-alt="A professional headshot of a smiling man with a warm, approachable expression. The lighting is soft and natural, emphasizing a bright, light-mode aesthetic with a clean, out-of-focus modern office background. The composition is a centered close-up, following a clean corporate minimalism style with vibrant but natural color saturation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPTw3xqdAhORAuGZOBftI03tLm0lHUel1JTMutU1F-CMZztZ8cuQ3I4bjpZZmaRyHngYc1w7vXPnveP05ZVadvEMUJTC2XWqGJM4myj67GQl5iD1D26021bI8iH2q2X-bMOg3v50_umW3Ym3Ny7WHGk8viAGekBy-6Q9DQmaq6pvfhbQyJXks6VkvKFkMCYjBgCRIiP_91GIMr1XRRH4B_0N1VqIUnEl80yW9Hl4R785ai_MzCFCe_5i_KpBrGRd7ogR0zbCYUCRx6"/>
+</div>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-sm md:px-lg py-xl flex flex-col md:flex-row items-center gap-xl">
+<div class="flex-1 space-y-md text-center md:text-left">
+<div class="inline-flex items-center gap-xs px-sm py-base bg-secondary-container text-on-secondary-container rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="eco">eco</span>
+<span class="font-label-sm text-label-sm">Sustainability Focused</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-headline-xl text-on-surface">
+                        Clean Streets, <br/><span class="text-primary">Green Future.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto md:mx-0">
+                        Book your waste pickup in seconds. Our smart platform connects you with efficient, eco-friendly collection services tailored to your needs.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center gap-sm pt-sm justify-center md:justify-start">
+<button class="w-full sm:w-auto px-xl py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:shadow-lg transition-all active:scale-95">Get Started</button>
+<button class="w-full sm:w-auto px-xl py-sm bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md hover:bg-outline-variant/20 transition-all active:scale-95">Login</button>
+</div>
+</div>
+<div class="flex-1 relative">
+<div class="rounded-xl overflow-hidden shadow-2xl">
+<img alt="Modern sustainable city waste management" data-alt="A wide-angle, high-definition photograph of a sun-drenched, modern city street featuring clean architecture and abundant greenery. In the foreground, a sleek, electric waste collection vehicle with a minimalist green and white livery is parked neatly. The lighting is bright and optimistic, emphasizing a sustainable urban lifestyle with high-key whites and vibrant emerald greens. The atmosphere is peaceful, professional, and forward-thinking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh06CWLbOG3DGtwvAN2ebPQ0OrOYqJ6pv7DnB5jvfi2LvJHLsjfH-53gKkssRTkUMc1Rz83ukasdUM02xOx1tNQKjBlAR7tIgERDFhhqUJpwWu4oQC2HxcYQYo-WIqBF8GOp7yRvDsxz9xS87lLOOINVTI65-YW-z9Vt6MkAf-mv4NZAgr7Y-z_iOox1plkq21tocTi9f6zVNfRlyl2Fx6FOi7LKUJ49dwvwX37vIessfs6cHKwd5niQafqUnV4Yq4zWt0pLa9GRgN"/>
+</div>
+<div class="absolute -bottom-xs -left-xs md:-left-md bg-surface-container-high p-sm rounded-xl shadow-lg border border-outline-variant max-w-[200px]">
+<div class="flex items-center gap-xs mb-base">
+<span class="material-symbols-outlined text-primary" data-icon="timer">timer</span>
+<span class="font-label-sm text-label-sm">Real-time Tracking</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Your pickup is only 15 mins away.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Impact (Stats) -->
+<section class="bg-surface-container-low py-xl">
+<div class="max-w-7xl mx-auto px-sm md:px-lg text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xl">Driving Measurable Impact</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-[48px] mb-sm block" data-icon="recycling">recycling</span>
+<div class="font-headline-xl text-headline-xl text-on-surface">45,000+</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Tons Waste Collected</div>
+</div>
+<div class="p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-[48px] mb-sm block" data-icon="groups">groups</span>
+<div class="font-headline-xl text-headline-xl text-on-surface">12k</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Active Households</div>
+</div>
+<div class="p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-[48px] mb-sm block" data-icon="co2">co2</span>
+<div class="font-headline-xl text-headline-xl text-on-surface">2.4M</div>
+<div class="font-label-md text-label-md text-on-surface-variant">CO2 Offset (Kg)</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento Style) -->
+<section class="py-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-sm md:px-lg">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-sm">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Tailored Waste Solutions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">We provide specialized collection services for every type of environment, ensuring maximum recovery and minimum landfill contribution.</p>
+</div>
+<button class="font-label-md text-label-md text-primary flex items-center gap-xs hover:gap-sm transition-all">
+                        View Pricing <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-[280px]">
+<!-- Residential -->
+<div class="md:col-span-8 relative rounded-xl overflow-hidden group cursor-pointer">
+<img alt="Residential Waste Service" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A peaceful suburban neighborhood scene at dawn with neatly placed green recycling bins on a clean curb. The morning light is golden and soft, creating a warm, safe, and efficient atmosphere. The focus is on a modern, well-maintained residential environment that prioritizes sustainability and order. The image uses a clean, light-mode palette with lush green lawns and pristine white houses." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5JiTDYcRSdL8MnbMQ89oJfR6pJJoH0xnGEwBlcFvgAI4ch0kNr6yG_AylqDBSOzWxNTVkUsuGhOPxjPFt3dnNzKsPlfyTxOsXpUZIeIrBrAqGNGeMY3qfhbvdfZhBfyhHd7UlT31NxObuv1J2SPvTEk0TXIL6CtWgMEwaIz8GiN2hQ8a66_1jrNRyOHnSHYZav-0tYHPP0BptBloYvECaIvk7nBSDYK6eZhjRsqJmTRm4bs-qhr7PDrqhYsnBHh2_Etgu4jbrBBkp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-lg flex flex-col justify-end text-white">
+<h3 class="font-headline-md text-headline-md">Residential Collection</h3>
+<p class="font-body-md text-body-md opacity-90 max-w-md">Reliable weekly pickups for households, including recycling and organic composting programs.</p>
+</div>
+</div>
+<!-- E-waste -->
+<div class="md:col-span-4 bg-tertiary-container/10 border border-tertiary-container rounded-xl p-lg flex flex-col justify-between hover:bg-tertiary-container/20 transition-colors group">
+<div>
+<span class="material-symbols-outlined text-tertiary text-[40px]" data-icon="devices">devices</span>
+<h3 class="font-headline-md text-headline-md text-on-tertiary-container mt-sm">E-Waste</h3>
+<p class="font-body-md text-body-md text-on-tertiary-container/80 mt-xs">Responsible disposal of old electronics and batteries to prevent hazardous leakage.</p>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-container self-end group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Commercial -->
+<div class="md:col-span-4 bg-secondary-container rounded-xl p-lg flex flex-col justify-between hover:shadow-lg transition-all cursor-pointer">
+<div>
+<span class="material-symbols-outlined text-secondary text-[40px]" data-icon="apartment">apartment</span>
+<h3 class="font-headline-md text-headline-md text-on-secondary-container mt-sm">Commercial</h3>
+<p class="font-body-md text-body-md text-on-secondary-container/80 mt-xs">Bulk waste management systems for offices, restaurants, and retail spaces.</p>
+</div>
+<button class="bg-on-secondary-container text-white px-md py-xs rounded-full font-label-sm text-label-sm w-fit mt-md">Request Quote</button>
+</div>
+<!-- Organic -->
+<div class="md:col-span-8 relative rounded-xl overflow-hidden group cursor-pointer">
+<img alt="Organic waste composting" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up shot of rich, dark brown compost filled with vegetable scraps and organic matter. The textures are sharp and earthy, illuminated by bright, natural sunlight. In the background, fresh green sprouts are emerging, symbolizing the cycle of life and renewal. The color palette is natural and vibrant, featuring deep browns and lush greens, emphasizing a clean, organic, and professional agricultural aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8TQgbtAW5OuxZ33Ye0S_13hcnTKiwdLzIxlVhbdRWx_cENDvPLk26xYzu7bqyIBpdEGj-4TykR6v8YGr_-4Bnzw5TBsG1x45eMBr5W6v0WYYfmmsFoavVfZ91b2fBKtO_tGy_sewngpV5L8kB-W4tDH0UmxgSaC2Ru_hw6kloxF1Mx03Q1xKnobAEV5xBvQWd_vBN8F_s75Ro6Gx2FiBRfRbx2jgAsPs-V7ZrlbFeOqfb__Gcm-v07LE8dDddrcvTBhZUW50jkiQu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-lg flex flex-col justify-end text-white">
+<h3 class="font-headline-md text-headline-md text-white">Organic &amp; Composting</h3>
+<p class="font-body-md text-body-md text-white opacity-90">Turning your food scraps into nutrient-rich soil for local community gardens.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-sm md:px-lg">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">How It Works</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Simple steps to a cleaner community.</p>
+</div>
+<div class="relative">
+<!-- Progress Line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-outline-variant z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl relative z-10">
+<div class="text-center group">
+<div class="w-24 h-24 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-md shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="edit_calendar">edit_calendar</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Schedule</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Choose your waste type and pick a convenient time slot via our app or web portal.</p>
+</div>
+<div class="text-center group">
+<div class="w-24 h-24 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-md shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Collect</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Our professional crew arrives in low-emission vehicles for a contactless, mess-free pickup.</p>
+</div>
+<div class="text-center group">
+<div class="w-24 h-24 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-md shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="forest">forest</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Restore</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Waste is sorted and processed at our eco-centers, minimizing environmental impact.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl">
+<div class="max-w-7xl mx-auto px-sm md:px-lg">
+<div class="bg-primary rounded-3xl p-xl flex flex-col md:flex-row items-center gap-xl overflow-hidden relative">
+<!-- Abstract Pattern Background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0,0 L100,100 M100,0 L0,100" stroke="white" stroke-width="0.5"></path>
+</svg>
+</div>
+<div class="flex-1 text-on-primary text-center md:text-left z-10">
+<h2 class="font-headline-lg text-headline-lg mb-sm">Ready to make a difference?</h2>
+<p class="font-body-lg text-body-lg opacity-90 mb-lg">Join thousands of citizens committed to a cleaner, smarter city. Get started with BorlaGo today.</p>
+<button class="bg-white text-primary px-xl py-sm rounded-lg font-label-md text-label-md hover:shadow-xl active:scale-95 transition-all">Sign Up Now</button>
+</div>
+<div class="flex-1 relative z-10 hidden md:block">
+<img alt="Mobile app interface" class="rounded-xl shadow-2xl" data-alt="A professional close-up shot of a hand holding a sleek, modern smartphone with the BorlaGo app interface visible. The app screen displays a clean dashboard with green accents and a 'Schedule Pickup' button. The lighting is high-key and bright, with a soft-focus background of a clean, sunlit living room. The image conveys ease of use, modern technology, and premium digital service design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpiF-2HH6TsgzzHgzVpS-PvhbMbxOL5pJ5xBl8h0St0ESzbbGXocXO6xZaS5VArTKQ0GoC-9R-GPN5C7wxRsjk4uwjtzBBcNswpDrxRDa7eFoJ-nnb44tEZ2wRd1P5JEfk4CWb0ZHMP17PDfW5yylF3yOR4RlN0fuRkZXKHpJ0G6Vy7X5_GoHNYEsomzwHIuBMUKpj1g_zNwYu2v7yMS3-EWdbQLvUJQ4e_SCpM9IaSkoR8RlKBbz1vyzhe64wDe0JxtA1L9CIC0nQ"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl gap-md max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">BorlaGo</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant max-w-[250px] text-center md:text-left">© 2024 BorlaGo Ecosystem. Clean Streets, Green Future.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors cursor-pointer opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors cursor-pointer opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors cursor-pointer opacity-80 hover:opacity-100" href="#">Sustainability Report</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors cursor-pointer opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+<div class="flex gap-sm">
+<button class="material-symbols-outlined p-base text-on-surface-variant hover:text-primary transition-colors" data-icon="language">language</button>
+<button class="material-symbols-outlined p-base text-on-surface-variant hover:text-primary transition-colors" data-icon="share">share</button>
+</div>
+</div>
+</footer>
+</body></html>

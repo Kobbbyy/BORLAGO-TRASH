@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BorlaGo Admin Portal | High-Level Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-fixed-dim": "#ffb4a9",
+                      "primary": "#006e2f",
+                      "on-background": "#191c1e",
+                      "primary-container": "#22c55e",
+                      "tertiary-container": "#ff8b7c",
+                      "on-secondary-fixed": "#042014",
+                      "surface-dim": "#d9dadc",
+                      "surface": "#f8f9fb",
+                      "secondary-container": "#caead6",
+                      "surface-container": "#edeef0",
+                      "on-primary-container": "#004b1e",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#f8f9fb",
+                      "surface-tint": "#006e2f",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#6d7b6c",
+                      "on-tertiary-container": "#76231b",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#4ae176",
+                      "primary-fixed": "#6bff8f",
+                      "on-tertiary-fixed": "#410001",
+                      "primary-fixed-dim": "#4ae176",
+                      "on-surface": "#191c1e",
+                      "outline-variant": "#bccbb9",
+                      "on-primary-fixed-variant": "#005321",
+                      "background": "#f8f9fb",
+                      "secondary-fixed-dim": "#afceba",
+                      "tertiary": "#9e4036",
+                      "surface-container-low": "#f3f4f6",
+                      "secondary-fixed": "#caead6",
+                      "surface-variant": "#e1e2e4",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-secondary-fixed-variant": "#314d3e",
+                      "on-surface-variant": "#3d4a3d",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#4e6b5a",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#ffdad5",
+                      "inverse-on-surface": "#f0f1f3",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#7f2a21",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e7e8ea",
+                      "secondary": "#486554",
+                      "on-primary-fixed": "#002109"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "xl": "64px",
+                      "xs": "8px",
+                      "md": "24px",
+                      "base": "4px",
+                      "margin-desktop": "48px",
+                      "sm": "16px",
+                      "lg": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col p-md gap-xs hidden md:flex">
+<div class="flex flex-col gap-base mb-lg">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">BorlaGo Portal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Waste Management System</p>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<!-- Active State Dashboard (Closest to Admin Overview) -->
+<a class="flex items-center gap-sm bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm font-bold active:scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm active:scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Users</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm active:scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="delete_sweep">delete_sweep</span>
+<span class="font-label-md text-label-md">Collectors</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm active:scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm active:scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-label-md">System Logs</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md flex flex-col gap-xs">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 flex-1">
+<!-- Top Bar -->
+<header class="bg-surface-container-lowest shadow-sm flex justify-between items-center w-full px-sm md:px-lg py-sm max-w-full sticky top-0 z-10">
+<div class="flex items-center gap-sm">
+<span class="md:hidden material-symbols-outlined text-on-surface-variant" data-icon="menu">menu</span>
+<div class="relative hidden md:block">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</span>
+<input class="block w-64 pl-10 pr-3 py-2 border border-outline-variant rounded-full bg-surface-container-low font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Search system logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full cursor-pointer active:scale-95 duration-200" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full cursor-pointer active:scale-95 duration-200" data-icon="settings">settings</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Admin Avatar" data-alt="A professional headshot of a modern corporate administrator in a bright, clean office setting. The lighting is soft and high-key, highlighting a confident but friendly expression. The overall aesthetic is polished, minimalist, and high-quality, mirroring the green and white clean energy brand identity of a sustainability-focused tech company." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDblT9Lw3xy05jTll-3moG6BewD27ECeCeRU2IFnJ4VzrBbhmezweh-3sQhS-ghbcf9j3dPKmjxa6EHANZVJJfUebwYSm1XA8COngEVbVgZU5cbeaZh4dNzX5xPY7Nlzn7ROYlld4bx4lzyQIka-zLfs5NglTdaOK7SwW8tsL1eyPSU5MnU3acs6ZcXsfU3vrKyOCG0xR1cWgIHhyrDUqXzyqpgtMGotn9ekq2fZD07eWMHnSdUIEzSU4uYagXzOWF2xEkhEe6EC_0u"/>
+</div>
+</div>
+</header>
+<section class="p-md md:p-lg space-y-lg">
+<!-- Hero Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Admin Overview</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time ecosystem performance and system health.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs bg-secondary-container text-on-secondary-container px-md py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
+                        Export Report
+                    </button>
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md hover:opacity-90 shadow-sm transition-all">
+                        System Sync
+                    </button>
+</div>
+</div>
+<!-- Key Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-xs bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="group">group</span>
+</div>
+<span class="text-primary font-label-sm text-label-sm flex items-center">+12% <span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span></span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Total Users</p>
+<p class="font-headline-md text-headline-md text-on-surface">24,892</p>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-xs bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="local_shipping">local_shipping</span>
+</div>
+<span class="text-primary font-label-sm text-label-sm flex items-center">Active</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Active Collectors</p>
+<p class="font-headline-md text-headline-md text-on-surface">1,105</p>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-xs bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="task_alt">task_alt</span>
+</div>
+<span class="text-primary font-label-sm text-label-sm flex items-center">+4.2% <span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span></span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Weekly Bookings</p>
+<p class="font-headline-md text-headline-md text-on-surface">8,430</p>
+</div>
+<!-- Metric Card 4 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-xs bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="monitoring">monitoring</span>
+</div>
+<span class="text-primary font-label-sm text-label-sm flex items-center">Target 98%</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Completion Rate</p>
+<p class="font-headline-md text-headline-md text-on-surface">99.4%</p>
+</div>
+</div>
+<!-- Charts and Activity Logs (Bento Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Chart Area: Waste Trends & User Growth -->
+<div class="lg:col-span-8 space-y-md">
+<div class="bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">Collection Trends vs Growth</h3>
+<select class="bg-surface-container-low border-outline-variant rounded-lg text-label-md font-label-md px-sm py-xs">
+<option>Last 30 Days</option>
+<option>Last 90 Days</option>
+</select>
+</div>
+<!-- Simulated Chart Visual -->
+<div class="relative h-64 w-full bg-surface-container-low rounded-lg overflow-hidden flex items-end justify-between px-md pt-lg">
+<div class="absolute inset-0 flex flex-col justify-between p-base opacity-10 pointer-events-none">
+<div class="border-b border-on-surface h-px w-full"></div>
+<div class="border-b border-on-surface h-px w-full"></div>
+<div class="border-b border-on-surface h-px w-full"></div>
+<div class="border-b border-on-surface h-px w-full"></div>
+<div class="border-b border-on-surface h-px w-full"></div>
+</div>
+<!-- Bar Chart simulation -->
+<div class="flex items-end gap-sm w-full h-full pb-xs">
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 40%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 65%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 55%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 85%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 70%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 95%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 80%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 60%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 75%;"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 90%;"></div>
+</div>
+<!-- Line Chart Overlay (SVG) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none px-md" preserveaspectratio="none">
+<path d="M 0 180 Q 50 120, 100 150 T 200 80 T 300 110 T 400 40 T 500 70 T 600 20" fill="none" stroke="#006e2f" stroke-width="3"></path>
+<circle cx="100" cy="150" fill="#006e2f" r="4"></circle>
+<circle cx="300" cy="110" fill="#006e2f" r="4"></circle>
+<circle cx="500" cy="70" fill="#006e2f" r="4"></circle>
+</svg>
+</div>
+<div class="flex gap-md mt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 bg-primary-container rounded-full"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Collections (Tons)</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 bg-primary rounded-full"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">User Acquisition</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Log Widget -->
+<div class="lg:col-span-4 bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Recent System Events</h3>
+<div class="space-y-md">
+<!-- Event 1 -->
+<div class="flex gap-sm">
+<div class="relative">
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="person_add">person_add</span>
+</div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-px h-full bg-outline-variant"></div>
+</div>
+<div class="flex-1 pb-md">
+<p class="font-label-md text-label-md text-on-surface">New Collector Registered</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Marcus Kane (ID: #4421) joined District 7.</p>
+<span class="font-label-sm text-label-sm text-outline">2 mins ago</span>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex gap-sm">
+<div class="relative">
+<div class="h-8 w-8 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-[18px]" data-icon="report">report</span>
+</div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-px h-full bg-outline-variant"></div>
+</div>
+<div class="flex-1 pb-md">
+<p class="font-label-md text-label-md text-error">System Alert: Latency</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Server API 2 experienced 5% packet loss.</p>
+<span class="font-label-sm text-label-sm text-outline">15 mins ago</span>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="flex gap-sm">
+<div class="relative">
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="payments">payments</span>
+</div>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Bulk Payout Processed</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Successfully issued 450 collector incentives.</p>
+<span class="font-label-sm text-label-sm text-outline">1 hour ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Booking Monitor Table -->
+<div class="bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border border-outline-variant overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">Live Booking Monitor</h3>
+<div class="flex items-center gap-sm">
+<span class="flex h-3 w-3 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Monitoring 142 Active Pickups</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="font-label-sm text-label-sm text-on-surface-variant py-sm px-xs uppercase">Booking ID</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-sm px-xs uppercase">Customer</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-sm px-xs uppercase">Collector</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-sm px-xs uppercase">Waste Type</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-sm px-xs uppercase">Status</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-sm px-xs uppercase">Estimated Completion</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-xs font-label-md text-label-md text-primary">#BK-9021</td>
+<td class="py-md px-xs font-body-md text-body-md">Sarah Jenkins</td>
+<td class="py-md px-xs font-body-md text-body-md">David Miller</td>
+<td class="py-md px-xs">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="recycling">recycling</span>
+<span class="font-body-md text-body-md">Recyclables</span>
+</span>
+</td>
+<td class="py-md px-xs">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">Accepted</span>
+</td>
+<td class="py-md px-xs font-body-md text-body-md">14:45 PM</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-xs font-label-md text-label-md text-primary">#BK-9022</td>
+<td class="py-md px-xs font-body-md text-body-md">Grand Hotel Plaza</td>
+<td class="py-md px-xs font-body-md text-body-md">Elena Rodriguez</td>
+<td class="py-md px-xs">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="eco">eco</span>
+<span class="font-body-md text-body-md">Organic</span>
+</span>
+</td>
+<td class="py-md px-xs">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-700">In Progress</span>
+</td>
+<td class="py-md px-xs font-body-md text-body-md">15:10 PM</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-xs font-label-md text-label-md text-primary">#BK-9023</td>
+<td class="py-md px-xs font-body-md text-body-md">A. Thompson</td>
+<td class="py-md px-xs font-body-md text-body-md">Samuel Oke</td>
+<td class="py-md px-xs">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="warning">warning</span>
+<span class="font-body-md text-body-md">Hazardous</span>
+</span>
+</td>
+<td class="py-md px-xs">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">Pending</span>
+</td>
+<td class="py-md px-xs font-body-md text-body-md">16:30 PM</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl gap-md mt-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 BorlaGo Ecosystem. Clean Streets, Green Future.</p>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Sustainability Report</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+</footer>
+</main>
+</body></html>
